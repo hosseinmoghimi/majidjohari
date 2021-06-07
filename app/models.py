@@ -31,7 +31,7 @@ class Spin:
             self.spin_z=kwargs['spin_z']
     def __str__(self):
         return f"({self.spin_x},{self.spin_y},{self.spin_z})"
-    def scalar(self,spin2):
+    def auto_correlation(self,spin2):
         r=(self.spin_x*spin2.spin_x)+(self.spin_y*spin2.spin_y)+(self.spin_z*spin2.spin_z)
         return r
 class Atom:
@@ -44,8 +44,8 @@ class Atom:
     
     def distance(self,atom2):
         return self.location.distance(atom2.location)
-    def scalar(self,atom2):
-        return self.spin.scalar(atom2.spin)
+    def auto_correlation(self,atom2):
+        return self.spin.auto_correlation(atom2.spin)
     
     def __str__(self):
         return f"id= {self.id} ,location = {self.location} , spins = {self.spin}"
